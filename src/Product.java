@@ -69,6 +69,7 @@ public class Product {
         this.setPrice(newPrice);
 
         System.out.print("Enter the new SKU: ");
+        scanner.nextLine();
         String newSku = scanner.nextLine();
         this.setSku(newSku);
     }

@@ -1,49 +1,49 @@
 import java.util.Scanner;
 
 public class PhysicalProduct extends Product {
-    private String size;
-    private double weight;
-    private String color;
+    private String genre;
+    private int numberOfDisc;
+    private String colorOfDisc;
 
     public PhysicalProduct() {
         // calls the parent constructor
         super();
-        this.size = "N/A";
-        this.weight = 0.0;
-        this.color = "N/A";
+        this.genre = "N/A";
+        this.numberOfDisc = 0;
+        this.colorOfDisc= "N/A";
 
     }
 
-    public PhysicalProduct(String name, double price, String sku, String size, double weight, String color) {
+    public PhysicalProduct(String name, double price, String sku, String genre, int numberOfDisc, String colorOfDisc) {
         // calls the parent constructor
         super(name, price, sku);
-        this.size = size;
-        this.weight = weight;
-        this.color = color;
+        this.genre = genre;
+        this.numberOfDisc = numberOfDisc;
+        this.colorOfDisc = colorOfDisc;
     }
 
-    public String getSize() {
-        return size;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setGenre(String genre ) {
+        this.genre = genre;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getNumberOfDisc() {
+        return numberOfDisc;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setNumberOfDisc(int numberOfDisc) {
+        this.numberOfDisc = numberOfDisc;
     }
 
-    public String getColor() {
-        return color;
+    public String getColorOfDisc() {
+        return colorOfDisc;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColorOfDisc(String colorOfDisc) {
+        this.colorOfDisc = colorOfDisc;
     }
     public void displayNetPrice() {
         double tax = calculateSaleTax();
@@ -53,26 +53,27 @@ public class PhysicalProduct extends Product {
     @Override
     public void displayDetails() {
         super.displayDetails();
-        System.out.println("Physical Product Size: " + getSize());
-        System.out.println("Physical Product Weight: " + getWeight() + " lbs");
-        System.out.println("Physical Product Color: " + getColor());
+        System.out.println("Physical Product Genre : " + getGenre());
+        System.out.println("Physical Product Number Of Disc : " + getNumberOfDisc() + " Cds");
+        System.out.println("Physical Product Color of Disc : " + getColorOfDisc());
     }
     @Override
     public void editDetails() {
         super.editDetails();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the new size: ");
-        String newSize = scanner.nextLine();
-        this.setSize(newSize);
+        System.out.print("Enter the new genre: ");
+        String newGenre = scanner.nextLine();
+        this.setGenre(newGenre);
 
-        System.out.print("Enter the new weight: ");
-        double newWeight = scanner.nextDouble();
-        this.setWeight(newWeight);
+        System.out.print("Enter the new number of disc: ");
+        int newNumberOfDisc = scanner.nextInt();
+        this.setNumberOfDisc(newNumberOfDisc);
 
-        System.out.print("Enter the new color: ");
-        String newColor = scanner.nextLine();
-        this.setColor(newColor);
+        System.out.print("Enter the new color of disc: ");
+        scanner.nextLine();
+        String newColorOfDisc = scanner.nextLine();
+        this.setColorOfDisc(newColorOfDisc);
     }
 
 }

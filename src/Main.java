@@ -21,7 +21,7 @@ public class Main {
         } while (true);
         {
             Product product = new Product("CD", 19.99, "S123456");
-            PhysicalProduct physicalProduct = new PhysicalProduct("", 29.99, "789012", "XL", 0.5, "Blue");
+            PhysicalProduct physicalProduct = new PhysicalProduct("", 29.99, "789012", "Classical", 0, "Blue");
 
             System.out.println("Product Name: " + product.getName());
             System.out.println("Product Price: $" + product.getPrice());
@@ -30,32 +30,10 @@ public class Main {
             System.out.println("Physical Product Name: " + physicalProduct.getName());
             System.out.println("Physical Product Price: $" + physicalProduct.getPrice());
             System.out.println("Physical Product SKU: " + physicalProduct.getSku());
-            System.out.println("Physical Product Size: " + physicalProduct.getSize());
-            System.out.println("Physical Product Weight: " + physicalProduct.getWeight() + " lbs");
-            System.out.println("Physical Product Color: " + physicalProduct.getColor());
+            System.out.println("Physical Product Genre: " + physicalProduct.getGenre());
+            System.out.println("Physical Product Number of Disc: " + physicalProduct.getNumberOfDisc() + " CDs ");
+            System.out.println("Physical Product Color of Disc: " + physicalProduct.getColorOfDisc());
         }
-//        {
-//            Product product = new Product("Book", 19.99, "123456");
-//            PhysicalProduct physicalProduct = new PhysicalProduct("T-shirt", 29.99, "789012", "XL", 0.5, "Blue");
-//            DigitalProduct digitalProduct = new DigitalProduct("E-book", 9.99, "345678", "PDF", "<https://example.com/ebook>");
-//
-//            System.out.println("Product Name: " + product.getName());
-//            System.out.println("Product Price: $" + product.getPrice());
-//            System.out.println("Product SKU: " + product.getSku());
-//
-//            System.out.println("Physical Product Name: " + physicalProduct.getName());
-//            System.out.println("Physical Product Price: $" + physicalProduct.getPrice());
-//            System.out.println("Physical Product SKU: " + physicalProduct.getSku());
-//            System.out.println("Physical Product Size: " + physicalProduct.getSize());
-//            System.out.println("Physical Product Weight: " + physicalProduct.getWeight() + " lbs");
-//            System.out.println("Physical Product Color: " + physicalProduct.getColor());
-//
-//            System.out.println("Digital Product Name: " + digitalProduct.getName());
-//            System.out.println("Digital Product Price: $" + digitalProduct.getPrice());
-//            System.out.println("Digital Product SKU: " + digitalProduct.getSku());
-//            System.out.println("Digital Product Format: " + digitalProduct.getFormat());
-//            System.out.println("Digital Product Download Link: " + digitalProduct.getDownloadLink());
-//        }
     }
 
     private static int displayMenu() {
@@ -64,8 +42,8 @@ public class Main {
 
         while (true) {
             System.out.println("Menu:");
-            System.out.println("1. Add a product");
-            System.out.println("2. List all products");
+            System.out.println("1. Add a  Music product");
+            System.out.println("2. List all Music products");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -81,12 +59,12 @@ public class Main {
     }
 
     private static void addNewProduct() {
-        System.out.println("Enter the name of the product: ");
+        System.out.println("Enter the name of the Music Product : ");
         String name = scanner.nextLine();
-        System.out.println("Enter the price of the product: ");
+        System.out.println("Enter the price of the Music Product : ");
         double price = scanner.nextDouble();
         scanner.nextLine(); // consume the newline character remaining in the buffer
-        System.out.println("Enter the SKU of the product: ");
+        System.out.println("Enter the SKU of the Music Product : ");
         String sku = scanner.nextLine();
 
         while(true) {
@@ -98,27 +76,27 @@ public class Main {
             scanner.nextLine();
 
             if (choice == 1) {
-                System.out.println("Enter the size of the physical product: ");
-                String size = scanner.nextLine();
-                System.out.println("Enter the weight of the physical product: ");
-                double weight = scanner.nextDouble();
+                System.out.println("Enter the genre of the music compact disc : ");
+                String genre = scanner.nextLine();
+                System.out.println("Enter the number of discs  : ");
+                int numberOfCd = scanner.nextInt();
                 scanner.nextLine(); // consume the newline character remaining in the buffer
-                System.out.println("Enter the color of the physical product: ");
-                String color = scanner.nextLine();
+                System.out.println("Enter the color of the music compact disc: ");
+                String colorOfCd= scanner.nextLine();
 
-                PhysicalProduct physicalProduct = new PhysicalProduct(name, price, sku, size, weight, color);
+                PhysicalProduct physicalProduct = new PhysicalProduct(name, price, sku, genre,numberOfCd, colorOfCd);
                 productList.add(physicalProduct);
-                System.out.println("Physical product added successfully!");
+                System.out.println("Music compact disc added successfully!");
                 break;
             } else if (choice == 2) {
-                System.out.println("Enter the format of the digital product: ");
+                System.out.println("Enter the format of the digital music product: ");
                 String format = scanner.nextLine();
-                System.out.println("Enter the download link of the digital product: ");
+                System.out.println("Enter the download link of the digital music product: ");
                 String downloadLink = scanner.nextLine();
 
                 DigitalProduct digitalProduct = new DigitalProduct(name, price, sku, format, downloadLink);
                 productList.add(digitalProduct);
-                System.out.println("Digital product added successfully!");
+                System.out.println("Digital music product added successfully!");
                 break;
             } else {
                 System.out.println("Invalid choice. Please try again.");
