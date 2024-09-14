@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PhysicalProduct extends Product {
+public class PhysicalProduct extends Product{
     private String genre;
     private int numberOfDisc;
     private String colorOfDisc;
@@ -74,6 +74,11 @@ public class PhysicalProduct extends Product {
         scanner.nextLine();
         String newColorOfDisc = scanner.nextLine();
         this.setColorOfDisc(newColorOfDisc);
+    }
+
+    public double calculateSalesTax() {
+        double taxPercentage = 0.10; // 5% tax rate
+        return super.getPrice() * taxPercentage;
     }
 
 }

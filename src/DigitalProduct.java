@@ -57,5 +57,8 @@ public class DigitalProduct extends Product {
         String newDownloadLink = scanner.nextLine();
         this.setDownloadLink(newDownloadLink);
     }
-
+    public double calculateSalesTax() {
+        double taxPercentage = 0.0; // 0% tax rate
+        return super.getPrice() * taxPercentage;
+    }
 }

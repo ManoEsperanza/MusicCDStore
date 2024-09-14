@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-public class Product {
+public abstract class Product implements ITaxable{
     private String name;
     private double price;
     private String sku;
 
     public Product() {
-        // Default constructor
         this.name = "N/A";
         this.price = 0.0;
         this.sku = "N/A";
@@ -49,10 +48,7 @@ public class Product {
             throw new IllegalArgumentException("Invalid SKU. Please provide a non-empty string.");
         }
     }
-    protected double calculateSaleTax() {
-        double taxRate = 0.08;
-        return price * taxRate;
-    }
+
     public void displayDetails() {
         System.out.println("Product Name: " + getName());
         System.out.println("Product Price: $" + getPrice());
@@ -73,8 +69,19 @@ public class Product {
         String newSku = scanner.nextLine();
         this.setSku(newSku);
     }
+//    public abstract double calculateSalesTax();
 
+    protected double calculateSaleTax() {
+        double taxRate = 0.08;
+        return price * taxRate;
 
+    }
+
+//    @Override
+//    public double calculateSalesTax() {
+//        double taxPercentage = 0.1; // 10% tax rate
+//        return getPrice() * taxPercentage;
+//    }
 
 }
 
