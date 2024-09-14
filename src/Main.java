@@ -55,7 +55,7 @@ public class Main {
             choice = scanner.nextInt();
             // consume the newline character
             scanner.nextLine(); // Consume the newline character after scanner.nextInt()
-            if (choice == 5) {
+            if (choice >= 1 && choice <= 5) {
                 break;
             }
         }
